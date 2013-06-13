@@ -1,13 +1,12 @@
 package org.lds.filetools.util;
 
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 
 public class DsDialogUtil {
 	
-	public static String openWindowFileDialog(String fileName, String[] filterExtensions, String filterPath, String dialogName) {
-		FileDialog dialog = new FileDialog(new Shell(), SWT.OPEN);
+	public static String openWindowFileDialog(String fileName, String[] filterExtensions, String filterPath, String dialogName, int dialogStyle) {
+		FileDialog dialog = new FileDialog(new Shell(), dialogStyle);
 		dialog.setText(dialogName);
 		dialog.setFileName(fileName);
 		dialog.setFilterExtensions(filterExtensions);	// new String[] { "*.jar" }

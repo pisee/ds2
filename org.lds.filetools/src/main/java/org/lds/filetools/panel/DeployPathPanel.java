@@ -70,7 +70,7 @@ public class DeployPathPanel {
 		browseButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				String deployFilePath = "";
-				deployFilePath = DsDialogUtil.openWindowFileDialog("", new String[] { "*.deploy" }, null, "Search Deploy File");
+				deployFilePath = DsDialogUtil.openWindowFileDialog("", new String[] { "*.deploy" }, null, "Search Deploy File", SWT.OPEN);
 				if (deployFilePath == null || "".equalsIgnoreCase(deployFilePath)) {
 					return;
 				}else{
@@ -212,9 +212,9 @@ public class DeployPathPanel {
 				if(filePathText.getText() != null && !"".equalsIgnoreCase(filePathText.getText())){
 					String fileName = filePathText.getText().substring(filePathText.getText().lastIndexOf("\\")+1, filePathText.getText().lastIndexOf("."));
 					String filepath = filePathText.getText().substring(0, filePathText.getText().lastIndexOf("\\"));
-					deployFilePath = DsDialogUtil.openWindowFileDialog(fileName+".convert", new String[] { "*.convert" }, filepath, "Search Deploy File");
+					deployFilePath = DsDialogUtil.openWindowFileDialog(fileName+".convert", new String[] { "*.convert" }, filepath, "Search Deploy File", SWT.SAVE);
 				}else{
-					deployFilePath = DsDialogUtil.openWindowFileDialog(FileHandler.getFileName(".convert"), new String[] { "*.convert" }, null, "Search Deploy File");
+					deployFilePath = DsDialogUtil.openWindowFileDialog(FileHandler.getFileName(".convert"), new String[] { "*.convert" }, null, "Search Deploy File", SWT.SAVE);
 				}
 				if (deployFilePath == null || "".equalsIgnoreCase(deployFilePath)) {
 					return;
