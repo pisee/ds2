@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<!-- Project Popup Menu - Convert xml attribute menu -->
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution
+			adaptable="true"
+			id="org.eclipse.ui.articles.action.contribution.popup.object"
+			objectClass="org.eclipse.core.resources.IFile">
+			<filter name="projectNature" value="org.eclipse.jdt.core.javanature" />
+			<action
+				icon="icons/ds.gif"
+				id="org.lds.filetools.action.FileManager"
+				class="org.lds.filetools.action.FileManager"
+				label="Extract File List">
+			</action>
+		</objectContribution>
+	</extension>
+	
+	
+	<!-- Menu and Toolbar -->
+	<extension point="org.eclipse.ui.commands">
+    	<category
+            name="File Tools Category"
+            id="org.lds.filetools.commands.category">
+      	</category>
+      	<command
+            name="Deploy Path Command"
+            categoryId="org.lds.filetools.commands.category"
+            id="org.lds.filetools.commands.DeployPathCommand">
+    	</command>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+		<handler
+            commandId="org.lds.filetools.commands.DeployPathCommand"
+            class="org.lds.filetools.handler.DeployPathHandler">
+      	</handler>
+   	</extension>
+    <extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+        	<toolbar id="org.lds.filetools.toolbars.DeployPathToolbar">
+            	<command
+	                  commandId="org.lds.filetools.commands.DeployPathCommand"
+	                  icon="icons/ds.gif"
+	                  tooltip="Extract Deploy Path List"
+	                  id="org.lds.filetools.toolbars.DeployPathCommand">
+	            </command>
+         	</toolbar>
+      	</menuContribution>
+   </extension>
+</plugin>
