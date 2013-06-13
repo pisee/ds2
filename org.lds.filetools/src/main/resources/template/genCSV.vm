@@ -1,3 +1,0 @@
-#foreach( $filePath in $filePaths )
-$filePath
-#end
